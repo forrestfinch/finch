@@ -3,7 +3,7 @@
 const express = require('express');
 const msnger = require('msnger');
 const cors = require('cors')
-const app = express()
+
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 const util = require('util')
