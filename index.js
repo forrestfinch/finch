@@ -11,6 +11,10 @@ const _ = require('lodash')
 
 const app = express()
 
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config()
+}
+
 
 msnger.SERVICE = 'mailgun';
 msnger.USERNAME = process.env.USERNAME
@@ -44,7 +48,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (request, response) {
-	response.render('pages/index');
+	response.render('index');
 });
 
 app.listen(app.get('port'), function () {
