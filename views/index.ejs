@@ -52,7 +52,7 @@
         
         footer.page-footer {
             background-color: #1C2331;
-            margin-top: 0;
+            margin-top: 0px;
         }
         
         @media only screen and (max-width: 768px) {
@@ -279,55 +279,77 @@
             <div class="row">
 
                 <!--First column-->
-                <div class="col-md-3 offset-lg-1 hidden-lg-down">
+                <div class="col-md-4 offset-lg-1 hidden-lg-down">
                     <h5 class="title">Contact Us</h5>
-                    <p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>
-
-                    <p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
+                    <div class="row">
+                        <p translate="no" typeof="schema:PostalAddress">
+                          <span property="schema:name"><u>Finch Scoradia Inc.</u></span><br>
+                          <span property="schema:streetAddress">32 Vassar Street</span><br>
+                          Room 32-G515<br>
+                          <span property="schema:addressLocality">Cambridge</span>, <abbr title="Massachusetts" property="schema:addressRegion">MA</abbr> <br> <abbr property="schema:addressCountry">USA</abbr>  <span property="schema:postalCode">100211</span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p translate="no" typeof="schema:PostalAddress">
+                          <span property="schema:name"><u>Finch Scoradia Ltd.</u></span><br>
+                          <span property="schema:streetAddress">294 Herbert Macaulay Way</span><br>
+                          6th Floor<br>
+                          <span property="schema:addressLocality">Mainland</span>, <abbr title="Massachusetts" property="schema:addressRegion">Lagos</abbr><br> <abbr property="schema:addressCountry">Nigeria</abbr>  <span property="schema:postalCode">100211</span>
+                        </p>
+                    </div>
                 </div>
                 <!--/.First column-->
 
                 <hr class="hidden-md-up">
 
                 <!--Second column-->
-                <div class="col-lg-2 col-md-4 offset-lg-1">
-                    <h5 class="title">First column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col-lg-6 col-md-6">
+                    <h5 class="title">Write to Us</h5>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left">Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Tell us your name, please." required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left">Email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="somebody@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left">Phone Number</label>
+                                    <input type="text" name="phone" class="form-control" placeholder="+2348022783818">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left">Message</label>
+                                    <textarea name="message" id="" cols="30" rows="10" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-lg btn-flat pull-right" >Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <!--/.Second column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Third column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Second column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <!--/.Third column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Fourth column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Third column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <!--/.Fourth column-->
 
             </div>
         </div>
@@ -368,7 +390,12 @@
                 density: 5000
             });
 
-            $("contactForm").click(function(e) {
+            $("#contactForm").submit(function(e) {
+                e.preventDefault();
+
+                var data = $(this).serializeArray();
+                console.log(data); 
+                console.log($(this)); 
                 $.ajax({
                     url: "/message",
                     type: "POST",
@@ -379,13 +406,13 @@
                         message: 'aMessage'
                     },
                     success: function () {
-                        // Do something when success 
+                        alert("Thank you for getting it touch. \nOne of your team members will get back to you shortly.")
                     },
                     error: function () {
                         // Do something else on error 
+                        alert("Your message could not be delevered at the moment. \nPlease, try again later.")
                     }
                 });
-                e.preventDefault();
             })
         });
     </script>
