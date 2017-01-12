@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Material Design Bootstrap</title>
+    <title>Finch Scoradia | Corporate Site</title>
 
     <!-- Font Awesome -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather|Montserrat|Ubuntu" rel="stylesheet">
@@ -28,6 +28,11 @@
         .view {
             height: 100%;
             font-family: Lato, sans-serif;
+            background: rgba(0, 0 , 0, 0.8);
+        }
+
+        .h1-responsive {
+            style=font-family: Montserrat, sans-serif;
         }
         /* Navigation*/
         
@@ -67,10 +72,6 @@
         .carousel-inner {
             height: 100%;
         }
-        
-        #intro {
-            background: rgba(0, 0 , 0, 0.8);
-        }
 
         .carousel-item:nth-child(1) {
             background: rgba(62, 69, 92, 0.8);
@@ -79,13 +80,19 @@
         }
         
         .carousel-item:nth-child(2) {
-            background-image: url("http://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img%20(2).jpg");
+            background-image: url("/img/crypt.jpg");
             background-repeat: no-repeat;
             background-size: cover;
         }
         
         .carousel-item:nth-child(3) {
-            background-image: url("http://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img%20(3).jpg");
+            background-image: url("/img/api.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .carousel-item:nth-child(4) {
+            background-image: url("/img/chain.jpeg");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -161,9 +168,9 @@
                     <div class="full-bg-img flex-center">
                         <ul class="animated fadeInUp col-md-12">
                             <li>
-                                <h1 class="h1-responsive flex-item" style="font-family: Montserrat">Finch Scoradia</h1>
+                                <h1 class="h1-responsive flex-item">Welcome to Finch Scoradia</h1>
                                 <li>
-                                    <p class="flex-item">Data-driven private firm focused on building quality, authentic products with a personal touch</p>
+                                    <p class="flex-item">A data-driven private firm focused on building quality, authentic solutions with a personal touch.</p>
                                 </li>
                                 <br>
                                 <li>
@@ -183,13 +190,15 @@
                     <div class="full-bg-img flex-center">
                         <ul class="animated fadeInUp col-md-12">
                             <li>
-                                <h1 class="h1-responsive">Lots of tutorials at your disposal</h1>
+                                <h1 class="h1-responsive flex-item">Bitfuge<span class="text-warning">.</span></h1>
                             </li>
-                            <li>
-                                <p>And all of them are FREE!</p>
+                            <li class="flex-item">
+                                <p>Bitfuge is a special investment instrument committed to exceptional returns</p> <p>for investors through an actively managed portfolio of these blockchain assets.</p>
                             </li>
+                            <br>
+                            <br>
                             <li>
-                                <a target="_blank" href="http://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-primary btn-lg">Start learning</a>
+                                <a target="_blank" href="https://bitfuge.com" class="btn btn-warning btn-lg">Visit Site</a>
                             </li>
                         </ul>
                     </div>
@@ -198,6 +207,30 @@
             </div>
             <!--/.Second slide -->
 
+            <!--Third slide -->
+            <div class="carousel-item">
+                <!--Mask-->
+                <div class="view hm-black-light">
+                    <div class="full-bg-img flex-center">
+                        <ul class="animated fadeInUp col-md-12">
+                            <li>
+                                <h1 class="h1-responsive flex-item">Apipanda</h1>
+                            </li>
+                            <li class="flex-item">
+                                <p>Apipanda is a fast, secure and scalable developers hub for managing and extending API/Microservice platforms; </p><p> featuring an API gateway, analytics/business intelligence, sandboxes, developer portal and more.</p>
+                            </li>
+                            <br>
+                            <br>
+                            <li>
+                                <a target="_blank" href="https://apipanda.com" class="btn btn-info btn-lg">Visit Site</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/.Mask-->
+            </div>
+            <!--/.Third slide -->
+
             <!--Third slide-->
             <div class="carousel-item">
                 <!--Mask-->
@@ -205,12 +238,13 @@
                     <div class="full-bg-img flex-center">
                         <ul class="animated fadeInUp col-md-12">
                             <li>
-                                <h1 class="h1-responsive">Visit our support forum</h1></li>
+                                <h1 class="h1-responsive flex-item">Blockpanda</h1></li>
                             <li>
-                                <p>Our community can help you with any question</p>
+                                <p class="flex-item">An AI powered PaaS as a service for building blockchain derivative services.</p>
                             </li>
+                            <br>
                             <li>
-                                <a target="_blank" href="http://mdbootstrap.com/forums/forum/support/" class="btn btn-default btn-lg">Support forum</a>
+                                <a target="_blank" href="https://blockpanda.com" class="btn btn-default btn-lg">Visit Site</a>
                             </li>
                         </ul>
                     </div>
@@ -238,7 +272,7 @@
 
 
     <!--Footer-->
-    <footer class="page-footer center-on-small-only">
+    <footer class="page-footer center-on-small-only" id="contact">
 
         <!--Footer Links-->
         <div class="container-fluid">
@@ -246,7 +280,7 @@
 
                 <!--First column-->
                 <div class="col-md-3 offset-lg-1 hidden-lg-down">
-                    <h5 class="title">ABOUT MATERIAL DESIGN</h5>
+                    <h5 class="title">Contact Us</h5>
                     <p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>
 
                     <p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
