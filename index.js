@@ -10,23 +10,20 @@ const util = require('util')
 const _ = require('lodash')
 
 const app = express()
-
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').config()
-}
-
-
+	// if (process.env.NODE_ENV !== 'production') {
+	// 	require('dotenv').config()
+	// }
 msnger.SERVICE = 'mailgun';
 msnger.USERNAME = process.env.USERNAME
 msnger.PASS = process.env.PASSWORD
 msnger.DESTINATION = process.env.EMAIL
 
 
-msnger.SUBJECT = function (req) {
+msnger.SUBJECT = function(req) {
 	return util.format('Important message from %s', req.body.name);
 };
 
-msnger.BODY = function (req) {
+msnger.BODY = function(req) {
 	return util.format('Message: %s \n%s\n%s', req.body.name, req.body.email);
 }
 
@@ -41,17 +38,18 @@ app.use(bodyParser.urlencoded({
 // 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use('/assets', express.static('assets'));
+app.use(express.static(__dirname + '/dist'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
 	response.render('index');
 });
 
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
 });
 
@@ -61,7 +59,7 @@ app.listen(app.get('port'), function () {
  * mail. This is done because there is no need to maintain a connection all
  * the time.
  */
-app.post('/message', function (req, res) {
+app.post('/message', function(req, res) {
 	var transporter = nodemailer.createTransport({
 		service: msnger.SERVICE, // like gmail, Mailgun, etc
 		auth: {
@@ -73,7 +71,7 @@ app.post('/message', function (req, res) {
 	var mailOptions = msnger.setMailOptions(req);
 	console.log(mailOptions);
 
-	transporter.sendMail(mailOptions, function (err, responseStatus) {
+	transporter.sendMail(mailOptions, function(err, responseStatus) {
 		if (err) {
 			util.log(util.format('ERROR: %j', err));
 			res.status(500).send('Something broke!');
