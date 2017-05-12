@@ -23,6 +23,7 @@ gulp.task('scripts', function() {
                    assets + 'js/vendor/jquery-lang.js',
                    assets + 'js/vendor/jquery.mobile.custom.js',
                    assets + 'js/vendor/jquery.countdown.min.js',
+                   assets + 'js/vendor/particleground.js',
                    assets + 'js/vendor/moment.js',
                    assets + 'js/vendor/moment-timezone-with-data.js',
                    assets + 'js/countdown.js',
