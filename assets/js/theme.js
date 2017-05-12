@@ -85,14 +85,14 @@ function getScrolledData() {
 
 function headerChanges() {
   $('header').css({
-    background: moreInfoOpened ? '#6da741' : '#173f4f',
+    background: moreInfoOpened ? '#888888' : '#222222',
     top: '0px',
-    height: '45px',
-    padding: '8px',
+    height: '60px',
+    padding: '12px',
     'z-index': '1000'
   })
   $('#finchLogo').css({
-    height: '25px'
+    height: '45px'
   })
   $('header ul li a').css({
     'font-size': '14px',
@@ -105,7 +105,7 @@ function headerReset() {
   $('header').removeAttr('style')
     //but always keep the color applied from the scrolling
   $('header').css({
-    background: moreInfoOpened ? '#6da741' : '#173f4f'
+    background: moreInfoOpened ? '#888888' : '#222222'
   })
   $('#finchLogo').removeAttr('style')
   $('header ul li a').removeAttr('style')
@@ -169,10 +169,10 @@ function osMoreInformation(os) {
   // animation
   $('#finch-os .container-fluid').addClass('animated bounceOut')
   $('#finch-os').css({
-    background: '#6da741'
+    background: '#888888'
   })
   $('header').css({
-    background: moreInfoOpened ? '#6da741' : '#173f4f'
+    background: moreInfoOpened ? '#888888' : '#222222'
   })
   $('header ul li a').css({
     color: "#fff"
@@ -322,15 +322,16 @@ $(document).on("ready", function() {
 
 
 //init particles background
-/* Disabled for excessive CPU consumption
+// Disabled for excessive CPU consumption
 $(document).ready(function() {
   var colorParticles = 'rgba(255,255,255,0.07)'
   $('#finch-os').particleground({
     dotColor: colorParticles,
-    lineColor: colorParticles
+    lineColor: colorParticles,
+    density: 5000
   });
 });
-*/
+
 
 //Contribution interpolation
 
@@ -422,9 +423,8 @@ var contributionInterpolation = function() {
 
 }
 
-// Add "openSUSE Linux OS" to the document Title
 $(document).on("ready", function() {
-  $("title").prepend('openSUSE - Linux OS. ')
+  $("title").prepend('Finch Scoradia | Tools for Better Living.')
 })
 
 // check if SVG is supported by the user's browser
