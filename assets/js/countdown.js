@@ -2,7 +2,7 @@ $(function() {
 
   'use strict'
 
-  var leapReleaseDate = moment.tz("2017-05-11 12:00", "Europe/Berlin");
+  var leapReleaseDate = moment.tz("2017-06-11 12:00", "Europe/Berlin");
 
   $('.finch-countdown-leap-42-2__number').countdown(leapReleaseDate.toDate(), function(event) {
 
