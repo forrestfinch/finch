@@ -1,40 +1,3 @@
-
-/*------------------------------------------------------------------
-
-Project:	Talos - Creative Multipurpose HTML Template
-Version:	1.0
-Last change:	24/09/16 
-Assigned to:	IG Design
-Primary use:	Multipurpose OnePage Design
-
-
-Table of contents
-
-1. Preloader
-2. Navigation
-3. Primary
-4. Home
-5. About
-6. Quotes
-7. Team
-8. Separators
-9. Counter
-10. Work
-11. Ajax Projects Expander Styles
-12. Single External Project
-13. Logos Carousel
-14. Services 
-15. Blog
-16. Contact
-14. Google Maps 
-15. Contact Form
-16. Footers
-17. Tooltip
-18. Media Queries
-
--------------------------------------------------------------------*/
-
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic);
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&subset=devanagari,latin-ext';
 
@@ -371,11 +334,11 @@ body.royal_preloader {
 	transition : all 0.3s ease-out;
 }
 .cbp-af-header.cbp-af-header-shrink .logo{
-	width:86px;
-	height:16px;
-	top:32px;
+	width:80px;
+	height:50px;
+	top:15px;
 	background:url('../images/logo-light.png') no-repeat center center;
-	background-size:86px 16px;
+	background-size:80px 50px;
 	-webkit-transition : all 0.3s ease-out;
 	-moz-transition : all 0.3s ease-out;
 	-o-transition :all 0.3s ease-out;
@@ -420,12 +383,12 @@ body.royal_preloader {
 
 .logo{
 	position:absolute;
-	width:134px;
-	height:25px;
+	width:80px;
+	height:80px;
 	z-index:10000;
-	top:50px;
+	top:20px;
 	background:url('../images/logo-light.png') no-repeat center center;
-	background-size:134px 25px;
+	background-size:80px 50px;
 	-webkit-transition : all 0.3s ease-out;
 	-moz-transition : all 0.3s ease-out;
 	-o-transition :all 0.3s ease-out;
@@ -664,12 +627,12 @@ Mobile style's
 	}
 	.cbp-af-header.cbp-af-header-shrink .logo{
 		position:absolute;
-		width:100px;
-		height:18px;
+		width:80px;
+		height:50px;
 		z-index:10000;
-		top:30px;
+		top:15px;
 		background:url('../images/logo-light.png') no-repeat center center;
-		background-size:100px 18px;
+		background-size:80px 50px;
 		-webkit-transition : all 0.3s ease-out;
 		-moz-transition : all 0.3s ease-out;
 		-o-transition :all 0.3s ease-out;
@@ -677,12 +640,12 @@ Mobile style's
 	}
 	.logo{
 		position:absolute;
-		width:100px;
-		height:18px;
+		width:80px;
+		height:50px;
 		z-index:10000;
-		top:30px;
+		top:15px;
 		background:url('../images/logo-light.png') no-repeat center center;
-		background-size:100px 18px;
+		background-size:80px 50px;
 		-webkit-transition : all 0.3s ease-out;
 		-moz-transition : all 0.3s ease-out;
 		-o-transition :all 0.3s ease-out;
