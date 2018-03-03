@@ -24,12 +24,12 @@ msnger.SUBJECT = function(req) {
 };
 
 msnger.BODY = function(req) {
-	return util.format('Message: %s \n%s\n%s', req.body.name, req.body.email);
+	return util.format('Message: %s \n%s\n%s', req.body.name, req.body.email, req.body.message);
 }
 
 
 
-app.use(cors()); // enable cross-origin resource sharing
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -65,15 +65,9 @@ app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
 });
 
-/**
- * Route to send mail
- * The SMTP transport creates a connection pool that is closed after sending a
- * mail. This is done because there is no need to maintain a connection all
- * the time.
- */
 app.post('/message', function(req, res) {
 	var transporter = nodemailer.createTransport({
-		service: msnger.SERVICE, // like gmail, Mailgun, etc
+		service: msnger.SERVICE,
 		auth: {
 			user: msnger.USERNAME,
 			pass: msnger.PASS
@@ -81,7 +75,6 @@ app.post('/message', function(req, res) {
 	});
 
 	var mailOptions = msnger.setMailOptions(req);
-	console.log(mailOptions);
 
 	transporter.sendMail(mailOptions, function(err, responseStatus) {
 		if (err) {
