@@ -11,54 +11,70 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var stripDebug = require('gulp-strip-debug');
 
+
 gulp.task('scripts', function() {
-  return gulp.src([assets + 'js/vendor/jquery.min.js',
-                   assets + 'js/vendor/bootstrap.min.js',
-                   assets + 'js/vendor/jquery.easing.1.3.js',
-                   assets + 'js/vendor/smoothscroll.js',
-                   assets + 'js/vendor/owl.carousel.min.js',
-                   assets + 'js/vendor/wow.js',
-                   assets + 'js/vendor/Modernizr.custom.js',
-                   assets + 'js/vendor/jquery-cookie.js',
-                   assets + 'js/vendor/jquery-lang.js',
-                   assets + 'js/vendor/jquery.mobile.custom.js',
-                   assets + 'js/vendor/jquery.countdown.min.js',
+  return gulp.src([
+                   assets + 'js/jquery-2.1.1.js',
+                   assets + 'js/royal_preloader.min.js',
                    assets + 'js/vendor/particleground.js',
-                   assets + 'js/vendor/moment.js',
-                   assets + 'js/vendor/moment-timezone-with-data.js',
-                   assets + 'js/countdown.js',
-                   assets + 'js/theme.js'])
+                   assets + 'js/plugins.js',
+                   assets + 'js/masonry.js',
+                   assets + 'js/isotope.js',
+                   assets + 'js/letters.js',
+                   assets + 'js/jquery.themepunch.tools.min.js',
+                   assets + 'js/jquery.themepunch.revolution.min.js',
+                   assets + 'js/jquery.themepunch.revolution.min.js',
+                   ])
     .pipe(concat('main.js'))
     .pipe(rename({
       suffix: '.min'
     }))
-    //  .pipe(stripDebug())
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(destination + 'js'));
+});
+
+gulp.task('extensions', function() {
+  return gulp.src([
+                   assets + 'js/extensions/revolution.extension.actions.min.js',
+                   assets + 'js/extensions/revolution.extension.carousel.min.js',
+                   assets + 'js/extensions/revolution.extension.kenburn.min.js',
+                   assets + 'js/extensions/revolution.extension.layeranimation.min.js',
+                   assets + 'js/extensions/revolution.extension.migration.min.js',
+                   assets + 'js/extensions/revolution.extension.navigation.min.js',
+                   assets + 'js/extensions/revolution.extension.parallax.min.js',
+                   assets + 'js/extensions/revolution.extension.slideanims.min.js',
+                   assets + 'js/extensions/revolution.extension.video.min.js',
+                   ])
+    .pipe(concat('extensions.js'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(stripDebug())
     .pipe(uglify())
     .pipe(gulp.dest(destination + 'js'));
 });
 
 // Preprocess CSS
-var less = require('gulp-less');
 var path = require('path');
 var minifyCss = require('gulp-minify-css');
 
-gulp.task('less', function() {
-  return gulp.src(assets + 'css/main.less')
-    .pipe(less({
-      paths: [path.join(__dirname, 'less', 'includes')]
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(minifyCss())
-    .pipe(gulp.dest(destination + 'css'));
-});
-
-gulp.task('vendorCSS', ['less'], function() {
-  return gulp.src([assets + 'css/vendor/animate/animate.css',
-                   assets + 'css/vendor/owl-carousel/owl.carousel.css',
-                   assets + 'css/vendor/fontawesome/font-awesome.css'])
-    .pipe(concat('vendor.css'))
+gulp.task('css', function() {
+  return gulp.src([assets + 'css/base.css',
+                   assets + 'css/skeleton.css',
+                   assets + 'css/layout.css',
+                   assets + 'css/color.css',
+                   assets + 'css/font-awesome.css',
+                   assets + 'css/et-line.css',
+                   assets + 'css/ionicons.min.css',
+                   assets + 'css/owl.carousel.css',
+                   assets + 'css/owl.transitions.css',
+                   assets + 'css/retina.css',
+                   assets + 'css/settings.css',
+                   assets + 'css/layers.css',
+                   assets + 'css/navigation.css',
+                   ])
+    .pipe(concat('main.css'))
     .pipe(rename({
       suffix: '.min'
     }))
@@ -80,13 +96,24 @@ gulp.task('imagesCompression', function() {
     .pipe(gulp.dest(destination + 'images'));
 });
 
+gulp.task('copy', function() {
+  return gulp.src([
+                    assets + 'js/custom*.js',
+                    assets + 'js/modernizr*.js',
+                    assets + 'css/font/*.js',
+                    assets + 'font/**/*.js',
+                  ])
+    .pipe(gulp.dest(destination + 'js'));
+});
+
 // Watch for changes in our custom assets
 gulp.task('watch', function() {
   // Watch .js files
   gulp.watch(assets + 'js/*.js', ['scripts']);
+  gulp.watch(assets + 'js/custom*.js', ['copy']);
   gulp.watch(assets + 'js/vendor/*.js', ['scripts']);
   // Watch .less files
-  gulp.watch(assets + 'css/*.less', ['less']);
+  gulp.watch(assets + 'css/*.css', ['css']);
   // Watch image files
   gulp.watch(assets + 'images/**/*', ['imagesCompression']);
 });
@@ -100,4 +127,4 @@ gulp.task('runServer', shell.task([
 ]))
 
 // Default Task
-gulp.task('default', ['scripts', 'less', 'vendorCSS', 'imagesCompression']);
+gulp.task('default', ['scripts', 'extensions', 'css', 'copy', 'imagesCompression']);
