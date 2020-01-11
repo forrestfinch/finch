@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({
 // 
 app.set('port', (process.env.PORT || 5000));
 
-// app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('assets'));
 app.use(express.static(__dirname + '/dist'));
 
 // views is directory for all template files
