@@ -72,7 +72,6 @@ app.get('/services', function(request, response) {
 });
 
 app.get('/contact', function(request, response) {
-	console.log(response.locals, request.session);
 	response.render('contact', {flash: response.locals.flash});
 });
 
