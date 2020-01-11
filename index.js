@@ -2,14 +2,16 @@
 
 const express = require('express');
 const msnger = require('msnger');
-const cors = require('cors')
-
-const bodyParser = require('body-parser')
-const nodemailer = require('nodemailer')
-const util = require('util')
-const _ = require('lodash')
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const util = require('util');
+const _ = require('lodash');
 
 const app = express()
+const sessionStore = new session.MemoryStore;
 	// if (process.env.NODE_ENV !== 'production') {
 	// 	require('dotenv').config()
 	// }
@@ -20,7 +22,7 @@ msnger.DESTINATION = process.env.EMAIL
 
 
 msnger.SUBJECT = function(req) {
-	return util.format('Important message from %s', req.body.name);
+	return util.format('%s from %s', req.body.subject, req.body.subject);
 };
 
 msnger.BODY = function(req) {
@@ -34,12 +36,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
-
+app.use(cookieParser('secret'));
+app.use(session({
+    cookie: { maxAge: 60000 },
+    store: sessionStore,
+    saveUninitialized: true,
+    resave: 'true',
+    secret: 'secret'
+}));
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response, then delete it
+    res.locals.flash = req.session.flash;
+    delete req.session.flash;
+    next();
+});
 // 
 app.set('port', (process.env.PORT || 5000));
 
-app.use('/assets', express.static('assets'));
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/assets'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -58,15 +72,12 @@ app.get('/services', function(request, response) {
 });
 
 app.get('/contact', function(request, response) {
-	response.render('contact');
-});
-
-app.listen(app.get('port'), function() {
-	console.log('Node app is running on port', app.get('port'));
+	console.log(response.locals, request.session);
+	response.render('contact', {flash: response.locals.flash});
 });
 
 app.post('/message', function(req, res) {
-	var transporter = nodemailer.createTransport({
+	let transporter = nodemailer.createTransport({
 		service: msnger.SERVICE,
 		auth: {
 			user: msnger.USERNAME,
@@ -74,16 +85,22 @@ app.post('/message', function(req, res) {
 		}
 	});
 
-	var mailOptions = msnger.setMailOptions(req);
+	let mailOptions = msnger.setMailOptions(req);
 
 	transporter.sendMail(mailOptions, function(err, responseStatus) {
 		if (err) {
 			util.log(util.format('ERROR: %j', err));
-			res.status(500).send('Something broke!');
+			req.session.flash = {
+				type: 'danger',
+				message: 'Something broke!'
+			}
 		} else {
 			util.log(util.format('STATUS: %j', responseStatus));
 			util.log('mail sent!');
-			res.send(true);
+			req.session.flash = {
+				type: 'info',
+				message: 'Thank you for contacting us! A team member will get back to you shortly.'
+			}
 		}
 
 		// Close the SMTP pool.
@@ -92,5 +109,11 @@ app.post('/message', function(req, res) {
 
 		// Clean up
 		transporter = mailOptions = null;
+		res.redirect(301, '/contact');
 	});
+});
+
+
+app.listen(app.get('port'), function() {
+	console.log('Node app is running on port', app.get('port'));
 });
