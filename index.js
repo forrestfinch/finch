@@ -38,11 +38,11 @@ app.use(bodyParser.urlencoded({
 // 
 app.set('port', (process.env.PORT || 5000));
 
-app.use('/assets', express.static('assets'));
-app.use(express.static(__dirname + '/dist'));
+// app.use('/assets', express.static('assets'));
+app.use(express.static(__dirname + '/assets'));
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/pages');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
