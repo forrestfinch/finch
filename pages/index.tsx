@@ -11,9 +11,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head
-        title="Forrest &amp; Finch"
+        title="Forrest &amp; Finch: Software Development Company"
         // keywords="Diversity hiring, Recruiting Automation, DEI hiring, Candidate sourcing"
-        // description="Divercity’s recruitment tools help you directly source, connect with, and recruit diverse underrepresented candidates in the tech industry."
+        description="Forrest &amp; Finch is a top-rated software development company with a pool of 33 seasoned developers. Get the solution that meets your expectations."
       />
       <Hero />
       <LogoCloud />
