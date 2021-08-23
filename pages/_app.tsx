@@ -1,7 +1,15 @@
-import '../styles/globals.css'
+import { HubspotProvider } from '@aaronhayes/react-use-hubspot-form';
+import Layout from '../components/layout'
+import 'tailwindcss/tailwind.css'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <HubspotProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </HubspotProvider>
+  )
 }
-export default MyApp
+export default App
