@@ -12,8 +12,7 @@ const Home: NextPage = () => {
     <>
       <Head
         title="Forrest &amp; Finch: Software Development Company"
-        // keywords="Diversity hiring, Recruiting Automation, DEI hiring, Candidate sourcing"
-        description="Forrest &amp; Finch is a top-rated software development company with a pool of 33 seasoned developers. Get the solution that meets your expectations."
+        description="Forrest &amp; Finch is an award - winning mobile, web application &amp; software development company with a pool of 33 seasoned developers. We focus on strategy, UX design &amp; development for respected brands. Get the solution that meets your expectations."
       />
       <Hero />
       <LogoCloud />
