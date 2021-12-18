@@ -47,10 +47,10 @@ export default function Services() {
             <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                 <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">Our Services</h2>
                 <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                    We create successful, innovative digital products.
+                    We design engineering excellence.
                 </p>
                 <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                    We are a remote-first Internet Engineering cohort. Are you looking to stand out? We plan, design and develop high perfomance websites. Transform and boost your business through the power of creativity.
+                    Our portfolio spans a breadth of technologies from open source to Microsoft (.NET, C# etc.), web development to native mobile applications (iOS, Android) and everything in between. Are you looking to stand out? We plan, design and develop high perfomance websites. Transform and boost your business through the power of creativity.
                 </p>
                 <div className="mt-12">
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

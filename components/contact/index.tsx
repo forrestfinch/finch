@@ -10,7 +10,7 @@ export default function Contact() {
                         <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Sales Support</h2>
                         <div className="mt-3">
                             <p className="text-lg text-gray-500">
-                                We are a remote-first Internet Engineering cohort.
+                                An international full-service agency headquartered in Lagos, Nigeria. We craft intuitive digital products for better human experience.
                             </p>
                         </div>
                         <div className="mt-9">
@@ -37,7 +37,7 @@ export default function Contact() {
                         <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Technical Support</h2>
                         <div className="mt-3">
                             <p className="text-lg text-gray-500">
-                                Transform and boost your business through the power of creativity.
+                                F&amp;F is a company built around customer satisfaction. We believe it is the lifeblood of a sustainable software service business.
                             </p>
                         </div>
                         <div className="mt-9">

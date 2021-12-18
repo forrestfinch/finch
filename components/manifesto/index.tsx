@@ -33,7 +33,10 @@ const Manifesto = () => {
                         <h2 className="text-base font-semibold text-indigo-600 uppercase tracking-wide">Our Manifesto</h2>
                         <p className="mt-2 text-3xl font-extrabold text-gray-900">Tools for better living</p>
                         <p className="mt-4 text-lg text-gray-500">
-                            Finch is a boutique software firm focused on building quality, authentic solutions for better living. We plan, design and develop high perfomance websites. Transform and boost your business through the power of creativity.
+                            Forrest &amp; Finch is a full-service consulting firm that was founded on the premise of delivering predictable outcomes for our clients. 
+                            <br/> 
+                            <br/> 
+                            Our founders and team members have industry experience and held senior positions in a wide variety of companies – from emerging startups to large, global firms – and we have taken our combined experiences and developed a unique approach that is supported by the principles of deep expertise, integrity, transparency, and dependability.
                         </p>
                     </div>
                     <dl className="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
