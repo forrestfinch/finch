@@ -2,15 +2,8 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'api.producthunt.com',
-      'images.unsplash.com',
-      'tailwindui.com',
-      'apinew.pincapp.com',
-      's3.amazonaws.com',
-      'pinc-backend.s3.amazonaws.com',
-      's3-us-west-2.amazonaws.com'
-    ],
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/ddeeb6vhx/image/upload/',
   },
   productionBrowserSourceMaps: true,
   pageExtensions: ['tsx', 'ts'],
